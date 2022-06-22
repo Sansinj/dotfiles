@@ -48,7 +48,7 @@ fi
 #################### ZSH ####################
 #############################################
 # Zsh
-if [[ $(command -v zsh) == "" ]]
+if [[ $(command -v zsh) == "" ]] || [[ $(command -v zsh) != '/usr/local/bin/zsh' ]]
 then
     echo "Installing zsh"
     brew install zsh
@@ -77,6 +77,11 @@ else
     $ZSH/tools/upgrade.sh
 fi
 
+# Install fonts
+git clone https://github.com/powerline/fonts.git ~/fonts/
+sh ~/fonts/install.sh
+rm -rf ~/fonts
+
 if [ ! -d ~/.oh-my-zsh/custom/themes/powerlevel9k ]
 then
     git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
@@ -87,7 +92,7 @@ then
     git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
 fi
 
-ln -s $(pwd)/.zshrc ~/.zshrc
+ln -sf $(pwd)/.zshrc ~/.zshrc
 
 # #############################################
 # ################### GIT #####################
@@ -97,6 +102,7 @@ if [[ $(command -v git) == "" ]]
 then
     echo "Installing GIT"
     brew install git
+fi
 
 git config --global alias.c 'commit'
 git config --global alias.co 'checkout'
@@ -107,7 +113,7 @@ git config --global user.email "jonathan.chansin@clinia.com"
 git config --global user.name "CHANSIN Jonathan"
 git config --global credential.helper osxkeychain
 
-ln -s $(pwd)/.gitignore ~/.gitignore
+ln -sf $(pwd)/.gitignore ~/.gitignore
 git config --global core.excludesfile ~/.gitignore
 
 git config --global commit.gpgsign true
@@ -120,8 +126,8 @@ if [ ! -d ~/.pyenv ]
 then
     git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 fi
-pyenv install 3.8.10
-pyenv global 3.8.10
+~/.pyenv/bin/pyenv install 3.8.10
+~/.pyenv/bin/pyenv global 3.8.10
 
 # Install poetry
 pip install poetry
@@ -204,4 +210,9 @@ fi
 if [[ $(command -v jenv) == "" ]]
 then
     git clone https://github.com/jenv/jenv.git ~/.jenv
+    sudo ln -sfn /usr/local/opt/java/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+    jenv add /Library/Java/JavaVirtualMachines/openjdk.jdk/Contents/Home/
+
+    sudo ln -sfn /usr/local/opt/openjdk@8/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-8.jdk
+    jenv add /Library/Java/JavaVirtualMachines/openjdk-8.jdk/Contents/Home/
 fi

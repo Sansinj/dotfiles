@@ -14,6 +14,10 @@ You will need:
 ```sh
 sh run.sh
 ```
+
+### Change iterm font
+Set this font in iTerm2 (iTerm → Preferences → Profiles → Text → Font), in the dropdown select the desired Font (suggest Roboto Mono for Powerline).
+
 ### GPG key
 - Generate a new key pair
 ```sh
@@ -79,3 +83,4 @@ jenv add /Library/Java/JavaVirtualMachines/<jdk_version>/Contents/Home/
 
 ### Gemfury
 echo 'export GEMFURY_TOKEN=<token>' >> ~/.zshrc # Ask token
+
