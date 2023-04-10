@@ -82,9 +82,9 @@ git clone https://github.com/powerline/fonts.git ~/fonts/
 sh ~/fonts/install.sh
 rm -rf ~/fonts
 
-if [ ! -d ~/.oh-my-zsh/custom/themes/powerlevel9k ]
+if [ ! -d ~/.oh-my-zsh/custom/themes/powerlevel10k ]
 then
-    git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+    git clone https://github.com/bhilburn/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
 fi
 
 if [ ! -d ~/.oh-my-zsh/plugins/zsh-autosuggestions ]

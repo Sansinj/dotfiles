@@ -9,7 +9,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 POWERLEVEL9K_DIR_HOME_BACKGROUND='033'
 POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='033'
 POWERLEVEL9K_DIR_ETC_BACKGROUND='033'
@@ -24,11 +24,10 @@ POWERLEVEL9K_VCS_SHOW_SUBMODULE_DIRTY=false
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    git
-    zsh-autosuggestions
-    docker
-    history
-    web-search
+   git
+   zsh-autosuggestions
+   docker
+   history
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -41,15 +40,12 @@ export GPG_TTY=$(tty)
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
-    eval "$(pyenv init --path)"
+   eval "$(pyenv init --path)"
 fi
 
 ### JENV ###
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/jonathan/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jonathan/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/jonathan/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jonathan/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+# added by Snowflake SnowSQL installer
+alias snowsql=/Applications/SnowSQL.app/Contents/MacOS/snowsql
